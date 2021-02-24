@@ -181,6 +181,13 @@ Route::middleware('auth')->group(function () {
     Route::resource('extras', 'ExtraController')->except([
         'show'
     ]);
+    //Extra Multi
+    Route::get('extra/multi', 'ExtraMultiController@multi')->name('extra.multi');
+    Route::post('extra/multiple_extras', 'ExtraMultiController@multipleextras')->name('extra.multiple_extras');
+    Route::get('extra/statuson', 'ExtraController@statuson')->name('extra.statuson');
+    Route::get('extra/statusoff', 'ExtraController@statusoff')->name('extra.statusoff');
+    Route::post('extra/actionstatus', 'ExtraController@actionstatus')->name('extra.actionstatus');
+
     Route::resource('coupons', 'CouponController')->except([
         'show'
     ]);
