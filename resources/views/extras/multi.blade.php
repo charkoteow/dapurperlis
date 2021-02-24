@@ -54,17 +54,17 @@
       {!! Form::open(['url' => ['extra/multiple_extras'], 'method' => 'post']) !!}
       <div class="row">
         <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
-                            <!-- Name Field -->
+                            <!-- Name Field -->                           
                             <div class="form-group row ">
-                                <label for="name" class="col-3 control-label text-right">Nombre</label>
-                                <div class="col-9">
-                                    <input class="form-control" placeholder="Nombre..." name="name" type="text" id="name">
-                                    <div class="form-text text-muted">
-                                        Ingresar nombre
-                                    </div>
-                                </div>
+                              {!! Form::label('name', trans("lang.extra_name"), ['class' => 'col-3 control-label text-right']) !!}
+                              <div class="col-9">
+                                  <input class="form-control" placeholder="Nombre..." name="name" type="text" id="name">
+                                  <div class="form-text text-muted">
+                                      {{ trans("lang.extra_name_help") }}
+                                  </div>
+                              </div>
                             </div>
-                            
+
                             <!-- Extra Group Id Field -->
                             <div class="form-group row ">
                                 <label for="extra_group_id" class="col-3 control-label text-right">Grupo de extras</label>
