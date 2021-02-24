@@ -54,40 +54,42 @@
       {!! Form::open(['url' => ['extra/multiple_extras'], 'method' => 'post']) !!}
       <div class="row">
         <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
-                            <!-- Name Field -->                           
-                            <div class="form-group row ">
-                              {!! Form::label('name', trans("lang.extra_name"), ['class' => 'col-3 control-label text-right']) !!}
-                              <div class="col-9">
-                                  <input class="form-control" placeholder="Nombre..." name="name" type="text" id="name">
-                                  <div class="form-text text-muted">
-                                      {{ trans("lang.extra_name_help") }}
-                                  </div>
-                              </div>
-                            </div>
+            <!-- Name Field -->                           
+            <div class="form-group row ">
+              {!! Form::label('name', trans("lang.extra_name"), ['class' => 'col-3 control-label text-right']) !!}
+              <div class="col-9">
+                  {!! Form::text('name', null,  ['class' => 'form-control','placeholder'=>  trans("lang.extra_name_placeholder")]) !!}
+                  <div class="form-text text-muted">
+                      {{ trans("lang.extra_name_help") }}
+                  </div>
+              </div>
+            </div>
 
-                            <!-- Extra Group Id Field -->
-                            <div class="form-group row ">
-                                <label for="extra_group_id" class="col-3 control-label text-right">Grupo de extras</label>
-                                <div class="col-9">
-                                    <select name="extra_group_id" class="form-control select2">
-                                        <?php
-                                        $result = DB::table('extra_groups')
-                                        ->select(
-                                            'extra_groups.id',
-                                            'extra_groups.name',
-                                        )
-                                        ->get();
-                                        $myArray = json_decode($result, true);
+            <!-- Extra Group Id Field -->
+            <div class="form-group row ">
+              {!! Form::label('extra_group_id', trans("lang.extra_extra_group_id"),['class' => 'col-3 control-label text-right']) !!}
+              <div class="col-9">
+                    <select name="extra_group_id" class="form-control select2">
+                      <?php
+                      $result = DB::table('extra_groups')
+                      ->select(
+                          'extra_groups.id',
+                          'extra_groups.name',
+                      )
+                      ->get();
+                      $myArray = json_decode($result, true);
 
-                                        foreach ($myArray as $extraGroups){
-                                            echo '<option value="'.$extraGroups['id'].'">'.htmlspecialchars($extraGroups['name']).'</option>';
-                                        }
-                                        ?>
-                                    </select>
-                                    <div class="form-text text-muted">Seleccione el grupo a donde perteneceran tus extras</div>
-                                </div>
-                            </div>
-                        </div>
+                      foreach ($myArray as $extraGroups){
+                          echo '<option value="'.$extraGroups['id'].'">'.htmlspecialchars($extraGroups['name']).'</option>';
+                      }
+                      ?>
+                    </select>
+                  <div class="form-text text-muted">
+                    {{ trans("lang.extra_extra_group_id_help") }}
+                  </div>
+              </div>
+            </div>
+        </div>
                         <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
                             <!-- Price Field -->
                             <div class="form-group row ">
