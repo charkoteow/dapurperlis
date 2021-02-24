@@ -84,16 +84,12 @@
                                         ->select(
                                             'extra_groups.id',
                                             'extra_groups.name',
-                                            'restaurants.name as name_restaurant',
                                         )
-                                        ->leftjoin('restaurants', 'extra_groups.restaurant_id', '=', 'restaurants.id')
-                                        ->leftjoin("user_restaurants", "user_restaurants.restaurant_id", "=", "restaurants.id")
-                                        ->where('user_restaurants.user_id', $user_id)
                                         ->get();
                                         $myArray = json_decode($result, true);
 
                                         foreach ($myArray as $extraGroups){
-                                            echo '<option value="'.$extraGroups['id'].'">'.htmlspecialchars($extraGroups['name']).' - '.$extraGroups['name_restaurant'].'</option>';
+                                            echo '<option value="'.$extraGroups['id'].'">'.htmlspecialchars($extraGroups['name']).'</option>';
                                         }
                                         ?>
                                     </select>
@@ -123,16 +119,12 @@
                                             ->select(
                                                 'foods.id',
                                                 'foods.name',
-                                                'restaurants.name as name_restaurant',
                                             )
-                                            ->leftjoin('restaurants', 'foods.restaurant_id', '=', 'restaurants.id')
-                                            ->leftjoin("user_restaurants", "user_restaurants.restaurant_id", "=", "restaurants.id")
-                                            ->where('user_restaurants.user_id', $user_id)
                                             ->get();
                                             $myArrayFood = json_decode($resultFood, true);
 
                                             foreach ($myArrayFood as $foods){
-                                                echo '<option value="'.$foods['id'].'">'.htmlspecialchars($foods['name']).' - ('.htmlspecialchars($foods['name_restaurant']).')</option>';
+                                                echo '<option value="'.$foods['id'].'">'.htmlspecialchars($foods['name']).')</option>';
                                             }
                                         ?>
                                     </select>
