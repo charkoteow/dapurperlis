@@ -48,15 +48,6 @@
         <li class="nav-item">
           <a class="nav-link active" href="{!! url()->current() !!}"><i class="fa fa-plus mr-2"></i>{{trans('lang.extra_create')}} (Múltiple) <span class="badge badge-danger animated shake">New</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{!! route('extra.statuson')  !!}"><i class="fa fa-times mr-2"></i>Desactivar Extras <span class="badge badge-danger animated shake">New</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{!! route('extra.statusoff') !!}"><i class="fa fa-check mr-2"></i>Activar Extras <span class="badge badge-danger animated shake">New</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{!! route('extra.modmulti') !!}"><i class="fa fa-usd mr-2"></i>Cambiar precios masivos <span class="badge badge-danger animated shake">New</span></a>
-        </li>
       </ul>
     </div>
     <div class="card-body">
