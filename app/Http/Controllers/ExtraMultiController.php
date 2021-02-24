@@ -53,6 +53,11 @@ class ExtraMultiController extends Controller
     {
         $extras = explode(',',$request->name);
  
+        if (empty($extras)) {
+            Flash::error('Extra not found');
+            return redirect(route('extra.multi'));
+        }
+
         foreach($extras as $extra) {
             for ($i=0;$i<count($request['producto']);$i++)    
             {   

@@ -153,8 +153,8 @@
 
       <!-- Submit Field -->
       <div class="form-group col-12 text-right">
-          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar Extra</button>
-          <a href="{!! route('users.index') !!}" class="btn btn-default"><i class="fa fa-undo"></i> Cancelar</a>
+          <button type="submit" class="btn btn-{{setting('theme_color')}}"><i class="fa fa-save"></i> {{trans('lang.save')}} {{trans('lang.extra')}}</button>
+          <a href="{!! route('extras.index') !!}" class="btn btn-default"><i class="fa fa-undo"></i> {{trans('lang.cancel')}}</a>
       </div>
     </div>
       {!! Form::close() !!}
