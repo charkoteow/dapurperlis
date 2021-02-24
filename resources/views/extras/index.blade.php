@@ -35,6 +35,9 @@
           <a class="nav-link" href="{!! route('extras.create') !!}"><i class="fa fa-plus mr-2"></i>{{trans('lang.extra_create')}}</a>
         </li>
         @endcan
+        <li class="nav-item">
+          <a class="nav-link" href="{!! route('extra.multi') !!}"><i class="fa fa-plus mr-2"></i>{{trans('lang.extra_create')}} (Múltiple) <span class="badge badge-danger animated shake">New</span></a>
+        </li>
         @include('layouts.right_toolbar', compact('dataTable'))
       </ul>
     </div>
