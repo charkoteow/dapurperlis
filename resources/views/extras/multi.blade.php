@@ -90,72 +90,73 @@
               </div>
             </div>
         </div>
-                        <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
-                            <!-- Price Field -->
-                            <div class="form-group row ">
-                                <label for="price" class="col-3 control-label text-right">Precio</label>
-                                <div class="col-9">
-                                    <input class="form-control" step="any" placeholder="Precio" name="price" type="number" id="price">
-                                    <div class="form-text text-muted">
-                                        Ingresar precio
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- Product Field -->
-                                <div class="form-group row ">
-                                <label for="price" class="col-3 control-label text-right">Productos</label>
-                                <div class="col-9">
-                                    <select class="form-control select2" multiple name="producto[]" style="height: 250px;">    
-                                        <?php
-                                            $resultFood = DB::table('foods')
-                                            ->select(
-                                                'foods.id',
-                                                'foods.name',
-                                            )
-                                            ->get();
-                                            $myArrayFood = json_decode($resultFood, true);
+        <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
+          <!-- Price Field -->
+          <div class="form-group row ">
+              {!! Form::label('price', trans("lang.extra_price"), ['class' => 'col-3 control-label text-right']) !!}
+              <div class="col-9">
+                  {!! Form::number('price', null,  ['class' => 'form-control','step'=>"any",'placeholder'=>  trans("lang.extra_price_placeholder")]) !!}
+                  <div class="form-text text-muted">
+                      {{ trans("lang.extra_price_help") }}
+                  </div>
+              </div>
+          </div>
 
-                                            foreach ($myArrayFood as $foods){
-                                                echo '<option value="'.$foods['id'].'">'.htmlspecialchars($foods['name']).')</option>';
-                                            }
-                                        ?>
-                                    </select>
-                                    <div class="form-text text-muted">Seleccione los productos que contendran los extras</div>
-                                </div>
-                                </div>
+          <!-- Product Field -->
+          <div class="form-group row ">
+              {!! Form::label('food_id', trans("lang.extra_food_id"),['class' => 'col-3 control-label text-right']) !!}
+              <div class="col-9">
+                <select class="form-control select2" multiple name="producto[]" style="height: 250px;">    
+                      <?php
+                          $resultFood = DB::table('foods')
+                          ->select(
+                              'foods.id',
+                              'foods.name',
+                          )
+                          ->get();
+                          $myArrayFood = json_decode($resultFood, true);
 
-                            <div class="form-group row ">
-                                {!! Form::label('active', '¿Activo?',['class' => 'col-3 control-label text-right']) !!}
-                                <div class="checkbox icheck">
-                                    <label class="w-100 ml-2 form-check-inline">
-                                    {!! Form::hidden('active', 0) !!}
-                                    {!! Form::checkbox('active', 1, null) !!}
-                                    <span class="ml-2">Activar extra en la app</span>
-                                    </label>
-                                </div>
-                            </div>
+                          foreach ($myArrayFood as $foods){
+                              echo '<option value="'.$foods['id'].'">'.htmlspecialchars($foods['name']).')</option>';
+                          }
+                      ?>
+                  </select>
+                  <div class="form-text text-muted">{{ trans("lang.extra_food_id_help") }}</div>
+              </div>
+          </div>
 
-                        </div>
-                        </div>
-                        <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
+          <div class="form-group row ">
+            {!! Form::label('active', 'Active?',['class' => 'col-3 control-label text-right']) !!}
+            <div class="checkbox icheck">
+                <label class="w-100 ml-2 form-check-inline">
+                {!! Form::hidden('active', 0) !!}
+                {!! Form::checkbox('active', 1, null) !!}
+                <span class="ml-2">Activate extra in the app</span>
+                </label>
+            </div>
+          </div>
 
-                        <!-- Description Field -->
-                        <div class="form-group row ">
-                            <label for="description" class="col-3 control-label text-right">Descripción</label>
-                            <div class="col-9">
-                                <textarea class="form-control" name="description"></textarea>
-                                <div class="form-text text-muted">Ingrese una descripción</div>
-                            </div>
-                        </div>
-                        </div>
-
-                    <!-- Submit Field -->
-                    <div class="form-group col-12 text-right">
-                        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar Extra</button>
-                        <a href="{!! route('users.index') !!}" class="btn btn-default"><i class="fa fa-undo"></i> Cancelar</a>
-                    </div>
+        </div>
       </div>
+
+      <div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
+        <!-- Description Field -->
+        <div class="form-group row ">
+          {!! Form::label('description', trans("lang.extra_description"), ['class' => 'col-3 control-label text-right']) !!}
+          <div class="col-9">
+            {!! Form::textarea('description', null, ['class' => 'form-control','placeholder'=> trans("lang.extra_description_placeholder")  ]) !!}
+            <div class="form-text text-muted">{{ trans("lang.extra_description_help") }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Field -->
+      <div class="form-group col-12 text-right">
+          <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar Extra</button>
+          <a href="{!! route('users.index') !!}" class="btn btn-default"><i class="fa fa-undo"></i> Cancelar</a>
+      </div>
+    </div>
       {!! Form::close() !!}
       <div class="clearfix"></div>
     </div>
