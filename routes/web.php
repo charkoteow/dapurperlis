@@ -112,6 +112,7 @@ Route::middleware('auth')->group(function () {
     ]);
     Route::get('foods/statuson', 'FoodController@statuson')->name('foods.statuson');
     Route::get('foods/statusoff', 'FoodController@statusoff')->name('foods.statusoff');
+    Route::post('foods/actionstatus', 'FoodController@actionstatus')->name('foods.actionstatus');
 
     Route::post('galleries/remove-media', 'GalleryController@removeMedia');
     Route::resource('galleries', 'GalleryController')->except([
