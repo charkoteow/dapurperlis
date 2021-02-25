@@ -142,7 +142,7 @@
 
 </div>
 
-<div style="flex: 100%;max-width: 100%;padding: 0 4px;" class="column">
+<div style="flex: 50%;max-width: 50%;padding: 0 4px;" class="column">
     <!-- Map Field -->
     <div class="form-group row ">
         <div class="col-12">
