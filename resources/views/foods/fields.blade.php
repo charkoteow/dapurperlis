@@ -171,6 +171,17 @@
         </div>
     </div>
 
+    <!-- 'Boolean deliverable Field' -->
+    <div class="form-group row ">
+        {!! Form::label('food_status', '¿Active?',['class' => 'col-3 control-label text-right']) !!}
+        <div class="checkbox icheck">
+            <label class="col-9 ml-2 form-check-inline">
+                {!! Form::hidden('food_status', 0) !!}
+                {!! Form::checkbox('food_status', 1, null) !!}
+            </label>
+        </div>
+    </div>
+
     <!-- Restaurant Id Field -->
     <div class="form-group row ">
         {!! Form::label('restaurant_id', trans("lang.food_restaurant_id"),['class' => 'col-3 control-label text-right']) !!}
