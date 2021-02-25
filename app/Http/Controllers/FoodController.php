@@ -23,6 +23,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Response;
 use Prettus\Validator\Exceptions\ValidatorException;
+use App\Models\Food;
+use Illuminate\Support\Facades\DB;
 
 class FoodController extends Controller
 {
@@ -260,4 +262,110 @@ class FoodController extends Controller
             Log::error($e->getMessage());
         }
     }
+
+    public function statuson (){
+    
+        //$this->foodRepository->pushCriteria(new FoodsOfUserCriteria(auth()->id()));
+        //$foods = $this->foodRepository->groupedByRestaurantsFoodOn();
+        if (auth()->user()->hasRole('admin')) {
+            //$foods = Food::where('food_status','=', 1)
+            //->pluck('name', 'id');
+            $foods = DB::table('foods as food')
+            ->select(
+                DB::raw("CONCAT(food.name,' -- ',restaurants.name) AS name"),
+                'food.id'
+            )
+            ->leftjoin('restaurants','food.restaurant_id', '=', 'restaurants.id')
+            ->where('food.food_status', 1)
+            ->pluck('food.name', 'food.id');
+        } else {
+            //$foods = Food::join("user_restaurants", "user_restaurants.restaurant_id", "=", "foods.restaurant_id")
+            //->where('user_restaurants.user_id', auth()->id())->get()
+            //->where('food_status','=', 1)
+            //->pluck('name', 'id');
+
+            $foods = DB::table('foods as food')
+            ->select(
+                DB::raw("CONCAT(food.name,' -- ',restaurants.name) AS name"),
+                'food.id'
+            )
+            ->leftjoin("user_restaurants", "user_restaurants.restaurant_id", "=", "food.restaurant_id")
+            ->leftjoin('restaurants','food.restaurant_id', '=', 'restaurants.id')
+            ->where('user_restaurants.user_id', auth()->id())
+            ->where('food.food_status', 1)
+            ->pluck('food.name', 'food.id');
+        }
+
+        return view('foods.status_food_on')->with("foods", $foods);
+    }
+
+    public function statusoff (){
+    
+        //$this->foodRepository->pushCriteria(new FoodsOfUserCriteria(auth()->id()));
+        //$foods = $this->foodRepository->groupedByRestaurantsFoodOff();
+        if (auth()->user()->hasRole('admin')) {
+            //$foods = Food::where('food_status','=', 0)
+            //->pluck('name', 'id');
+
+            $foods = DB::table('foods as food')
+            ->select(
+                DB::raw("CONCAT(food.name,' -- ',restaurants.name) AS name"),
+                'food.id'
+            )
+            ->leftjoin('restaurants','food.restaurant_id', '=', 'restaurants.id')
+            ->where('food.food_status', 0)
+            ->pluck('food.name', 'food.id');
+        } else {
+            //$foods = Food::join("user_restaurants", "user_restaurants.restaurant_id", "=", "foods.restaurant_id")
+            //->where('user_restaurants.user_id', auth()->id())->get()
+            //->where('food_status','=', 0)
+            //->pluck('name', 'id');
+
+            $foods = DB::table('foods as food')
+            ->select(
+                DB::raw("CONCAT(food.name,' -- ',restaurants.name) AS name"),
+                'food.id'
+            )
+            ->leftjoin("user_restaurants", "user_restaurants.restaurant_id", "=", "food.restaurant_id")
+            ->leftjoin('restaurants','food.restaurant_id', '=', 'restaurants.id')
+            ->where('user_restaurants.user_id', auth()->id())
+            ->where('food.food_status', 0)
+            ->pluck('food.name', 'food.id');
+        }
+
+        return view('foods.status_food_off')->with("foods", $foods);
+    }
+
+    public function actionstatus(Request $request)
+    {
+        if (empty($request['food'])){
+            return response()->json(array(
+                'success' => false,
+                'message' => 'No seleccionó ningún elemento de la lista'
+            ));
+        }
+        for ($i=0;$i<count($request['food']);$i++) {   
+            $result = DB::table('foods')
+            ->where('id', $request['food'][$i])
+            ->update(['food_status' => $request['action']]);
+
+            if ($request['action'] == 1) {
+                $response_message = 'Producto(s) activado(s) exitosamente';
+            } else {
+                $response_message = 'Producto(s) desactivado(s) exitosamente';
+            }
+        }
+        if ($result) {
+            return response()->json(array(
+                'success' => true,
+                'message' => $response_message
+            ));
+        } else {
+            return response()->json(array(
+                'success' => false,
+                'message' => 'Parece que hubo un error al realizar está acción'
+            ));
+        }
+    }
+
 }
