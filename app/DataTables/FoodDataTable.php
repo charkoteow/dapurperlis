@@ -52,6 +52,9 @@ class FoodDataTable extends DataTable
             ->editColumn('featured', function ($food) {
                 return getBooleanColumn($food, 'featured');
             })
+            ->editColumn('food_status', function ($food) {
+                return getBooleanColumn($food, 'food_status');
+            })
             ->addColumn('action', 'foods.datatables_actions')
             ->rawColumns(array_merge($columns, ['action']));
 
