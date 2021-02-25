@@ -247,6 +247,8 @@
     {{--<script src="{{asset('plugins/select2/select2.min.js')}}"></script>--}}
     <!-- jQuery Knob Chart -->
     {{--<script src="{{asset('plugins/knob/jquery.knob.js')}}"></script>--}}
+    <!-- Bootstrap4 Duallistbox -->
+    <script src="https://adminlte.io/themes/dev/AdminLTE/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
     <!-- daterangepicker -->
     {{--<script src="{{asset('https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js')}}"></script>--}}
     {{--<script src="{{asset('plugins/daterangepicker/daterangepicker.js')}}"></script>--}}
