@@ -144,9 +144,14 @@ class FoodDataTable extends DataTable
                 'title' => trans('lang.food_weight'),
 
             ],
+            // [
+            //     'data' => 'featured',
+            //     'title' => trans('lang.food_featured'),
+
+            // ],
             [
-                'data' => 'featured',
-                'title' => trans('lang.food_featured'),
+                'data' => 'food_status',
+                'title' => '¿Active?',
 
             ],
             [
