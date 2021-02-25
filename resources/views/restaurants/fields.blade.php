@@ -97,6 +97,15 @@
         </div>
     </div>
 
+    <!-- Map Field -->
+    <div class="form-group row ">
+        <div class="col-12">
+            <div id="address-map-container" style="width:100%;height:400px; ">
+                <div style="width: 100%; height: 100%" id="address-map"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Latitude Field -->
     <div class="form-group row ">
         {!! Form::label('latitude', trans("lang.restaurant_latitude"), ['class' => 'col-3 control-label text-right']) !!}
@@ -139,16 +148,6 @@
             </label>
         </div>
     </div>
-
-    <!-- Map Field -->
-    <div class="form-group row ">
-        <div class="col-12">
-            <div id="address-map-container" style="width:100%;height:400px; ">
-                <div style="width: 100%; height: 100%" id="address-map"></div>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 
