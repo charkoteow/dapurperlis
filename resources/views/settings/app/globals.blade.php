@@ -240,6 +240,17 @@
                         </div>
                     </div>
 
+                    <!-- Enable Chat -->
+                    <div class="form-group row ">
+                        {!! Form::label('enable_chat', 'Chat',['class' => 'col-4 control-label text-right']) !!}
+                        <div class="checkbox icheck">
+                            <label class="w-100 ml-2 form-check-inline">
+                                {!! Form::hidden('enable_chat', null) !!}
+                                {!! Form::checkbox('enable_chat', 1, setting('enable_chat', false)) !!}
+                                <span class="ml-2">Enable chat</span> </label>
+                        </div>
+                    </div>
+
 
                 </div>
                 <!-- Submit Field -->
