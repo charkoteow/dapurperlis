@@ -10,6 +10,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
 
+<!-- Bootstrap4 Duallistbox -->
+<link rel="stylesheet" href="https://adminlte.io/themes/dev/AdminLTE/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+
     <!-- Ionicons -->
 {{--<link href="https://unpkg.com/ionicons@4.1.2/dist/css/ionicons.min.css" rel="stylesheet">--}}
 {{--<!-- iCheck -->--}}
