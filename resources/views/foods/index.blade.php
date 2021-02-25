@@ -34,6 +34,12 @@
         <li class="nav-item">
           <a class="nav-link" href="{!! route('foods.create') !!}"><i class="fa fa-plus mr-2"></i>{{trans('lang.food_create')}}</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{!! route('foods.statuson') !!}"><i class="fa fa-times mr-2"></i>Desactivar Productos <span class="badge badge-danger animated shake">New</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{!! route('foods.statusoff') !!}"><i class="fa fa-check mr-2"></i>Activar Productos <span class="badge badge-danger animated shake">New</span></a>
+        </li>
         @endcan
         @include('layouts.right_toolbar', compact('dataTable'))
       </ul>
