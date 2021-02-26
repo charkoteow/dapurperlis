@@ -60,7 +60,7 @@
 @include('layouts.media_modal')
 @endsection
 @push('scripts_lib')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgSBTVc37XjAPbttsLPK1YMQJGWAH4xtQ&libraries=places&callback=initialize" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcbiFtib3mF4_oaoQe5igUML4aAO-Kb_s&libraries=places&callback=initialize" async defer></script>
 <script src="{{asset('js/mapInput.js')}}"></script>
 <!-- iCheck -->
 <script src="{{asset('plugins/iCheck/icheck.min.js')}}"></script>
