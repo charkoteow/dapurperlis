@@ -72,6 +72,7 @@ Route::middleware('auth')->group(function () {
             ]);
             Route::get('users/login-as-user/{id}', 'UserController@loginAsUser')->name('users.login-as-user');
             Route::patch('update', 'AppSettingController@update');
+            Route::patch('sendMessage', 'AppSettingController@message');
             Route::patch('translate', 'AppSettingController@translate');
             Route::get('sync-translation', 'AppSettingController@syncTranslation');
             Route::get('clear-cache', 'AppSettingController@clearCache');
