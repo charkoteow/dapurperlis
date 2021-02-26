@@ -90,7 +90,7 @@
     <div class="form-group row ">
         {!! Form::label('address', trans("lang.restaurant_address"), ['class' => 'col-3 control-label text-right']) !!}
         <div class="col-9">
-            {!! Form::text('address', null,  ['class' => 'form-control','placeholder'=>  trans("lang.restaurant_address_placeholder"), 'autocomplete' => 'address', 'id' => 'address-input']) !!}
+            {!! Form::text('address', null, ['class' => 'form-control map-input','placeholder'=> trans("lang.restaurant_address_placeholder"), 'autocomplete' => 'address', 'id' => 'address-input']) !!}
             <div class="form-text text-muted">
                 {{ trans("lang.restaurant_address_help") }}
             </div>
@@ -110,7 +110,7 @@
     <div class="form-group row ">
         {!! Form::label('latitude', trans("lang.restaurant_latitude"), ['class' => 'col-3 control-label text-right']) !!}
         <div class="col-9">
-            {!! Form::text('latitude', null,  ['class' => 'form-control','placeholder'=>  trans("lang.restaurant_latitude_placeholder"), 'id' => 'address-latitude']) !!}
+            {!! Form::text('latitude', null, ['class' => 'form-control lat','placeholder'=> trans("lang.restaurant_latitude_placeholder"), 'id' => 'address-latitude']) !!}
             <div class="form-text text-muted">
                 {{ trans("lang.restaurant_latitude_help") }}
             </div>
@@ -121,7 +121,7 @@
     <div class="form-group row ">
         {!! Form::label('longitude', trans("lang.restaurant_longitude"), ['class' => 'col-3 control-label text-right']) !!}
         <div class="col-9">
-            {!! Form::text('longitude', null,  ['class' => 'form-control','placeholder'=>  trans("lang.restaurant_longitude_placeholder"), 'id' => 'address-longitude']) !!}
+            {!! Form::text('longitude', null,  ['class' => 'form-control long','placeholder'=> trans("lang.restaurant_longitude_placeholder"), 'id' => 'address-longitude']) !!}
             <div class="form-text text-muted">
                 {{ trans("lang.restaurant_longitude_help") }}
             </div>
