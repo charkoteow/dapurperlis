@@ -16,9 +16,9 @@ function initialize() {
         const input = locationInputs[i];
         const fieldKey = input.id.replace("-input", "");
         const isEdit = document.getElementById(fieldKey + "-latitude").value != '' && document.getElementById(fieldKey + "-longitude").value != '';
-        //19.8406605,-90.5303981
-        const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || 19.8406605;
-        const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || -90.5303981;
+
+        const latitude = parseFloat(document.getElementById(fieldKey + "-latitude").value) || 6.4067463;
+        const longitude = parseFloat(document.getElementById(fieldKey + "-longitude").value) || 100.2215868;
 
         const map = new google.maps.Map(document.getElementById(fieldKey + '-map'), {
             center: {lat: latitude, lng: longitude},
