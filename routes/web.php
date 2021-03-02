@@ -143,6 +143,10 @@ Route::middleware('auth')->group(function () {
         'show'
     ]);
 
+    Route::resource('driverReviews', 'DriverReviewController')->except([
+        'show'
+    ]);
+
     Route::resource('favorites', 'FavoriteController')->except([
         'show'
     ]);
