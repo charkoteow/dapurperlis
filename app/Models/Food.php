@@ -178,6 +178,11 @@ class Food extends Model implements HasMedia
      **/
     public function extras()
     {
+        return $this->hasMany(\App\Models\Extra::class, 'food_id')->where('active', 1);
+    }
+
+    public function extrasManager()
+    {
         return $this->hasMany(\App\Models\Extra::class, 'food_id');
     }
 
