@@ -113,7 +113,7 @@ class ExtraAPIController extends Controller
             return $this->sendError('Extra not found');
         }
         $input = $request->all();
-        $customFields = $this->customFieldRepository->findByField('custom_field_model', $this->extraRepository->model());
+        //$customFields = $this->customFieldRepository->findByField('custom_field_model', $this->extraRepository->model());
         try {
             $extra = $this->extraRepository->update($input, $id);
 
@@ -122,10 +122,10 @@ class ExtraAPIController extends Controller
                 $mediaItem = $cacheUpload->getMedia('image')->first();
                 $mediaItem->copy($extra, 'image');
             }
-            foreach (getCustomFieldsValues($customFields, $request) as $value) {
-                $extra->customFieldsValues()
-                    ->updateOrCreate(['custom_field_id' => $value['custom_field_id']], $value);
-            }
+            // foreach (getCustomFieldsValues($customFields, $request) as $value) {
+            //     $extra->customFieldsValues()
+            //         ->updateOrCreate(['custom_field_id' => $value['custom_field_id']], $value);
+            // }
         } catch (ValidatorException $e) {
             return $this->sendError($e->getMessage());
         }
