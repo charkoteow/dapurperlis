@@ -43,7 +43,8 @@ class Extra extends Model implements HasMedia
         'description',
         'price',
         'food_id',
-        'extra_group_id'
+        'extra_group_id',
+		'active'
     ];
 
     /**
@@ -57,7 +58,8 @@ class Extra extends Model implements HasMedia
         'description' => 'string',
         'price' => 'double',
         'food_id' => 'integer',
-        'extra_group_id' => 'integer'
+        'extra_group_id' => 'integer',
+		'active' => 'integer'
     ];
 
     /**

@@ -89,7 +89,7 @@ class Food extends Model implements HasMedia
         'unit' => 'string',
         'featured' => 'boolean',
         'deliverable' => 'boolean',
-        'food_status' => 'boolean',
+        'food_status' => 'integer',
         'restaurant_id' => 'integer',
         'category_id' => 'integer'
     ];
