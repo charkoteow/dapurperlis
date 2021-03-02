@@ -131,7 +131,8 @@ class Restaurant extends Model implements HasMedia
     protected $appends = [
         'custom_fields',
         'has_media',
-        'rate'
+        'rate',
+        'open_restaurants'
         
     ];
 
@@ -251,6 +252,22 @@ class Restaurant extends Model implements HasMedia
     public function cuisines()
     {
         return $this->belongsToMany(\App\Models\Cuisine::class, 'restaurant_cuisines');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function openRestaurants()
+    {
+        return $this->hasMany(\App\Models\OpenRestaurant::class, 'restaurant_id');
+    }
+
+        /**
+    * @return \Illuminate\Database\Eloquent\Collection
+    */
+    public function getOpenRestaurantsAttribute()
+    {
+        return $this->openRestaurants()->get(['day_of_week','open_time','close_time']);
     }
 
     public function discountables()
