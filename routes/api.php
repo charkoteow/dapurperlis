@@ -57,6 +57,7 @@ Route::resource('extras', 'API\ExtraAPIController');
 Route::resource('extra_groups', 'API\ExtraGroupAPIController');
 Route::resource('faqs', 'API\FaqAPIController');
 Route::resource('restaurant_reviews', 'API\RestaurantReviewAPIController');
+Route::resource('driver_reviews', 'API\DriverReviewAPIController');
 Route::resource('currencies', 'API\CurrencyAPIController');
 Route::resource('slides', 'API\SlideAPIController')->except([
     'show'
