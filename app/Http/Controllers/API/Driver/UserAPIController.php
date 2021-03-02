@@ -145,6 +145,7 @@ class UserAPIController extends Controller
                 'scaffold_color' => '',
                 'google_maps_key' => '',
                 'fcm_key' => '',
+                'enable_chat' => '',
                 'mobile_language' => '',
                 'app_version' => '',
                 'enable_version' => '',
